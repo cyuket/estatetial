@@ -1,5 +1,5 @@
+import 'package:estatetial/ui/views/details.dart';
 import 'package:estatetial/ui/views/home_view.dart';
-import 'package:estatetial/ui/widgets/details.dart';
 import 'package:flutter/material.dart';
 import 'package:estatetial/constant/route_names.dart';
 
@@ -20,7 +20,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case DetailPageRoute:
       return _getPageRoute(
         routeName: settings.name,
-        viewToShow: DetailCard(),
+        viewToShow: DetailPageScreen(
+          launchModel: settings.arguments,
+        ),
       );
     default:
       return MaterialPageRoute(
