@@ -1,3 +1,4 @@
+import 'package:estatetial/constant/route_names.dart';
 import 'package:estatetial/ui/shared/app_colors.dart';
 import 'package:estatetial/ui/shared/shared_styles.dart';
 import 'package:estatetial/ui/shared/ui_helpers.dart';
@@ -13,7 +14,11 @@ class UpcomingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomCardWidget(),
+        CustomCardWidget(
+          onTap: () {
+            Navigator.pushNamed(context, DetailPageRoute);
+          },
+        ),
         verticalSpace(20),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
