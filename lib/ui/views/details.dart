@@ -139,7 +139,7 @@ class DetailPageScreen extends StatelessWidget {
                                 height: 35,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(6),
-                                  color: Color(0xffD21F06),
+                                  color: Color(0xffFF5B14),
                                 ),
                                 child: Center(
                                   child: Image.asset(AppAssets.redit),
