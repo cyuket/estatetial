@@ -16,7 +16,7 @@ class CustomCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final launchDate = DateFormat()
-        .add_MMMMEEEEd()
+        .add_yMMMMEEEEd()
         .format(DateTime.parse(launchModel?.launchDate));
 
     return InkWell(

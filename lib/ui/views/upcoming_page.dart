@@ -22,9 +22,12 @@ class UpcomingPage extends StatelessWidget {
         model.fetchUpcoming();
       }
     }, builder: (context, model, child) {
-      final launchDate = DateFormat.yMEd()
-          .add_jms()
-          .format(DateTime.parse(model?.upcoming?.launchDate));
+      var launchDate;
+      if (model.upcoming != null) {
+        launchDate = DateFormat.yMEd()
+            .add_jms()
+            .format(DateTime.parse(model?.upcoming?.launchDate));
+      }
 
       return model.busy
           ? Shimmer.fromColors(

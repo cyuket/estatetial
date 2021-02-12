@@ -5,6 +5,7 @@ import 'package:estatetial/ui/shared/shared_styles.dart';
 import 'package:estatetial/ui/shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailPageScreen extends StatelessWidget {
   final LaunchModel launchModel;
@@ -97,17 +98,22 @@ class DetailPageScreen extends StatelessWidget {
                               ),
                             ),
                             verticalSpaceSmall,
-                            Container(
-                              width: 112,
-                              height: 35,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(6),
-                                color: Color(0xffD21F06),
-                              ),
-                              child: Center(
-                                child: Icon(
-                                  Icons.play_arrow,
-                                  color: Colors.white,
+                            InkWell(
+                              onTap: () {
+                                launch(launchModel.youtubeLink);
+                              },
+                              child: Container(
+                                width: 112,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: Color(0xffD21F06),
+                                ),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.play_arrow,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             )
@@ -124,15 +130,20 @@ class DetailPageScreen extends StatelessWidget {
                               ),
                             ),
                             verticalSpaceSmall,
-                            Container(
-                              width: 112,
-                              height: 35,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(6),
-                                color: Color(0xffD21F06),
-                              ),
-                              child: Center(
-                                child: Image.asset(AppAssets.redit),
+                            InkWell(
+                              onTap: () {
+                                launch(launchModel.reddit);
+                              },
+                              child: Container(
+                                width: 112,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: Color(0xffD21F06),
+                                ),
+                                child: Center(
+                                  child: Image.asset(AppAssets.redit),
+                                ),
                               ),
                             )
                           ],
