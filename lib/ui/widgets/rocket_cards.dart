@@ -1,16 +1,15 @@
+import 'package:estatetial/constant/app_assets.dart';
+import 'package:estatetial/model/rocket_model.dart';
 import 'package:estatetial/ui/shared/app_colors.dart';
 import 'package:estatetial/ui/shared/shared_styles.dart';
 import 'package:estatetial/ui/shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 
 class RocketCardWidget extends StatelessWidget {
-  const RocketCardWidget({
-    Key key,
-    this.onTap,
-    this.active = false,
-  }) : super(key: key);
-  final Function onTap;
-  final bool active;
+  const RocketCardWidget({Key key, @required this.rocketModel})
+      : super(key: key);
+
+  final RocketModel rocketModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -30,6 +29,7 @@ class RocketCardWidget extends StatelessWidget {
                 SizedBox(
                   height: 85,
                   width: 85,
+                  child: Image.asset(AppAssets.rocket),
                 ),
                 horizontalSpaceMedium,
                 Column(
@@ -44,7 +44,7 @@ class RocketCardWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Starlink 2",
+                      "${rocketModel.name}",
                       style: textStyle.copyWith(
                         color: Colors.black,
                         fontSize: 18,
@@ -56,11 +56,13 @@ class RocketCardWidget extends StatelessWidget {
                       height: 20,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(6),
-                        color: active ? Color(0xff16BE27) : Color(0xffFF06067),
+                        color: rocketModel.active
+                            ? Color(0xff16BE27)
+                            : Color(0xffFF06067),
                       ),
                       child: Center(
                         child: Text(
-                          active ? "ACTIVATE" : "INACTIVE",
+                          rocketModel.active ? "ACTIVATE" : "INACTIVE",
                           style: textStyle.copyWith(
                             color: Colors.white,
                             fontSize: 8,
